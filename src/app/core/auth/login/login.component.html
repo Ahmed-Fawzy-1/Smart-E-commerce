@@ -1,0 +1,128 @@
+<section class="bg-gray-200 border rounded-lg border-gray-200 p-4  shadow-md md:w-1/2 mx-auto my-14">
+
+    <h1 class="text-center mb-3 font-light text-3xl">login Now </h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <app-input [control]="loginForm.get('email')" [typeInput]="'email'" [labelInput]="'Email'" [idInput]="'email'">
+        </app-input>
+        <app-input [control]="loginForm.get('password')" [labelInput]="'Password'" [idInput]="'password'">
+            Custom field match the pattern
+        </app-input>
+
+        <!-- <div class="relative mb-1">
+            <input formControlName="email" type="email" id="email" class="main-input peer" placeholder=" " />
+            <label for="email" class="main-label">Email</label>
+            @let emailControl = loginForm.get('email');
+
+            @if(emailControl?.errors && emailControl?.touched ){
+
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+
+
+                <ul class="mt-1.5 list-disc list-inside">
+                    @if (emailControl?.getError('required')) {
+
+                    <li>Input Is Required</li>
+                    }@else if (emailControl?.getError('email')) {
+
+                    <li>Pleas Enter a valid Email Address</li>
+                    }
+
+
+                </ul>
+            </div>
+
+            }
+
+        </div>
+
+        <div class="relative mb-1">
+            <input formControlName="password" type="password" id="password" class="main-input peer" placeholder=" " />
+            <label for="password" class="main-label">Password</label>
+            @let passwordControl = loginForm.get('password');
+
+            @if(passwordControl?.errors && passwordControl?.touched ){
+
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+
+
+                <ul class="mt-1.5 list-disc list-inside">
+                    @if (passwordControl?.getError('required')) {
+
+                    <li>Input Is Required</li>
+                    }@else if (passwordControl?.getError('pattern')) {
+
+                    <li>Custom Field Shuld Match The Pattern </li>
+                    }
+
+
+                </ul>
+            </div>
+
+            }
+
+        </div> -->
+
+
+        <div class="flex items-center space-x-10">
+
+            <a routerLink="/forget" class="text-sm text-green-600 hover:underline cursor-pointer">ForgetPassword</a>
+
+            <button type="submit" class="btn"> login
+                @if (isLoading) {
+                <span><i class="fas fa-spinner animate-spin"></i></span>
+                }
+            </button>
+
+        </div>
+
+
+        @if (msgError) {
+        <p class="text-center text-red-900 mt-4 p-4 bg-red-200">{{msgError}}</p>
+
+        }
+    </form>
+
+
+
+</section>
+
+
+
+
+
+<!-- <div class="relative">
+        <input [formControl]="email" type="email" id="email" class=" main-input peer" placeholder=" " />
+        <label for="email" class="main-label">Email</label>
+
+        @if (email.errors && email.touched) {
+
+        <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+            role="alert">
+
+
+            <ul class="mt-1.5 list-disc list-inside">
+                @if(email.getError('required')){
+                <li>Input Is Required</li>
+
+                }
+
+                @if(email.getError('email')){
+                <li>Pleas Enter a valid Email Address</li>
+
+
+                }
+                 <li>Input Should Be More Than Or Equal 2 Chars</li>
+        <li>Input Should Be Less Than Or Equal 20 Chars</li> 
+                <li>Custom Field Shuld Match The Pattern </li>
+        <li>Accept Only Egypt Phone  Numbers </li>
+        <li>Password Confirmation Is Incorrect </li> 
+            </ul>
+        </div>
+
+        }
+
+
+    </div> -->

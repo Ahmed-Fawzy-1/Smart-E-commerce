@@ -1,0 +1,75 @@
+<div class="relative my-4">
+
+    @if (element === 'input') {
+    <input [formControl]="control" [type]="typeInput || (flag ? 'password' : 'text')" [id]="idInput"
+        class="main-input peer" [class]="{'border-green-700':control?.valid,
+        'border-red-700':control?.invalid && control?.touched}" placeholder=" " />
+
+
+    }@else if(element === "text") {
+    <textarea [formControl]="control" [id]="idInput" class="main-input peer" [class]="{'border-green-700':control?.valid,
+        'border-red-700':control?.invalid && control?.touched}" placeholder=" "></textarea>
+
+    }
+
+
+
+
+
+    <label [for]="idInput" class="main-label" [class]="{'text-green-700':control?.valid,
+        'text-red-700':control?.invalid && control?.touched
+     }">
+        {{ labelInput }}
+    </label>
+
+    @if (idInput === "password"|| idInput === "rePassword") {
+    <span (click)="flag = !flag" class="absolute top-1/2 end-4 -translate-y-1/2 cursor-pointer">
+
+        <i class="fas fa-eye"></i>
+    </span>
+    }
+
+
+    @if(control?.errors && control?.touched ){
+
+    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+        role="alert">
+
+
+        <ul class="mt-1.5 list-disc list-inside">
+            @if (control?.hasError('required')) {
+
+            <li>Input Is Required</li>
+            }
+            @if (control?.hasError('minlength')) {
+
+            <li>Input Sould Be More Than Or Equal 3 Chars </li>
+            }
+            @if (control?.hasError('maxlength')) {
+
+            <li>Input Should Be Less Than Or Equal 20 Chars</li>
+            }
+            @if (control?.hasError('email')) {
+
+            <li>Pleas Enter a valid Email Address</li>
+            }
+            @if (control?.hasError('pattern')) {
+
+            <li><ng-content /> </li>
+            }
+            @if (control?.hasError('mismatch')) {
+
+            <li>Password Confirmation is Incorrect</li>
+            }
+
+
+
+        </ul>
+    </div>
+    }
+
+
+
+
+
+</div>

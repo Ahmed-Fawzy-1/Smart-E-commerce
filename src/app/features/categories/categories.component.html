@@ -1,0 +1,17 @@
+<section class="py-14 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-gray-800 mb-10 text-center">
+            Popular Categories
+        </h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            @for (category of categoriesList; track category._id) {
+            <div
+                class="border border-slate-200 rounded-lg p-4 bg-white shadow-sm hover:shadow-md transition duration-200 text-center">
+                <img [src]="category.image" [alt]="category.name" class="w-full h-32 object-contain mb-3" />
+                <h3 class="text-lg font-semibold text-gray-700">{{ category.name }}</h3>
+            </div>
+            }
+        </div>
+    </div>
+</section>

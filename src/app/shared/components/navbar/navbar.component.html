@@ -1,0 +1,102 @@
+<nav class="bg-slate-800 border border-slate-700 dark:bg-slate-900 dark:border-slate-800 shadow-sm">
+    <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-4 px-6">
+        <!-- Logo -->
+        <a routerLink="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="/images/freshcart-logo.svg" alt="Smart Cart Logo"
+                class="h-10 w-auto hover:bg-cyan-600 transition rounded-md" />
+
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button data-collapse-toggle="navbar-default" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-400 rounded-lg md:hidden hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Menu Items -->
+        <div class="hidden w-full md:flex md:w-auto grow" id="navbar-default">
+            <!-- Main Links -->
+            @if (isLogin === true) {
+            <ul
+                class="font-medium ms-6 flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-5 rtl:space-x-reverse md:mt-0 text-gray-300">
+                <li>
+                    <a routerLink="/home" routerLinkActive="text-white bg-cyan-600"
+                        class="block py-2 px-4 rounded-md hover:bg-cyan-700 transition">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/products" routerLinkActive="text-white bg-cyan-600"
+                        class="block py-2 px-4 rounded-md hover:bg-cyan-700 transition">
+                        Products
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/categories" routerLinkActive="text-white bg-cyan-600"
+                        class="block py-2 px-4 rounded-md hover:bg-cyan-700 transition">
+                        Categories
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/brands" routerLinkActive="text-white bg-cyan-600"
+                        class="block py-2 px-4 rounded-md hover:bg-cyan-700 transition">
+                        Brands
+                    </a>
+                </li>
+            </ul>
+            }
+
+            <!-- Right Section -->
+            <ul
+                class="font-medium ms-auto flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 text-gray-300 items-center">
+                <!-- Social Icons -->
+                <li class="flex items-center space-x-3">
+                    <a href="https://www.facebook.com/YourPage" target="_blank"
+                        class="hover:text-cyan-500 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com/YourPage" target="_blank" class="hover:text-cyan-500 transition"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/YourPage" target="_blank"
+                        class="hover:text-cyan-500 transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/YourPage" target="_blank"
+                        class="hover:text-cyan-500 transition"><i class="fab fa-instagram"></i></a>
+                </li>
+
+                <!-- Login/Register or Cart/Logout -->
+                @if (isLogin === false) {
+                <li>
+                    <a routerLink="/login" routerLinkActive="text-white bg-cyan-600"
+                        class="block py-2 px-4 rounded-md hover:bg-cyan-700 transition">
+                        Login
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/register" routerLinkActive="text-white bg-cyan-600"
+                        class="block py-2 px-4 rounded-md hover:bg-cyan-700 transition">
+                        Register
+                    </a>
+                </li>
+                } @else {
+                <li>
+                    <a routerLink="/cart" routerLinkActive="text-cyan-600"
+                        class="relative text-2xl block py-2 px-4 hover:text-cyan-500 transition">
+                        <i class="fas fa-cart-shopping"></i>
+                        <span class="bg-cyan-600 text-white text-[10px] px-1 rounded-full absolute -top-1 -right-1">{{
+                            count() }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="signOut()" routerLink="/signout"
+                        class="block cursor-pointer py-2 px-4 rounded-md hover:bg-cyan-700 transition">
+                        Sign Out
+                    </a>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

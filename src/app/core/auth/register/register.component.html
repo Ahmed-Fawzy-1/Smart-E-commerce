@@ -1,0 +1,101 @@
+<section class="bg-gray-200 border rounded-lg border-gray-200 p-4  shadow-md md:w-1/2 mx-auto my-14">
+
+    <h1 class="text-center mb-3 font-light text-3xl">Register Now </h1>
+
+    <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+
+        <app-input [control]="registerForm.get('name')" [typeInput]="'text'" [idInput]="'name'"
+            [labelInput]="'Name'"></app-input>
+        <app-input [control]="registerForm.get('email')" [typeInput]="'email'" [idInput]="'email'"
+            [labelInput]="'Email'"></app-input>
+        <app-input [control]="registerForm.get('password')" [idInput]="'password'" [labelInput]="'Password '">
+            Custom field match the pattern
+        </app-input>
+
+
+        <!-- <div class="relative mb-1">
+            <input formControlName="rePassword" type="password" id="rePassword" class="main-input peer"
+                placeholder=" " />
+            <label for="rePassword" class="main-label">rePassword</label>
+            @if (registerForm.getError ('mismatch') && registerForm.get('rePassword')?.touched) {
+
+            <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+
+                <ul class="mt-1.5 list-disc list-inside">
+
+                    @if (rePasswordControl?.getError('pattern')) {
+
+                    <li>Password Confirmation Is Incorrect </li>
+                    }
+
+
+                </ul>
+            </div>
+
+
+            }
+            @let rePasswordControl = registerForm.get('rePassword');
+
+
+        </div> -->
+
+        <app-input [control]="registerForm.get('rePassword')" [idInput]="'rePassword'" [labelInput]="'rePassword'">
+        </app-input>
+
+        <app-input [control]="registerForm.get('phone')" [typeInput]="'tel'" [idInput]="'phone'" [labelInput]="'Phone'">
+            Accept Only Egypt Phone Numbers
+        </app-input>
+
+        <button type="submit" class="btn"> Register
+            @if (isLoading) {
+            <span><i class="fas fa-spineer animate-spin "></i></span>
+            }
+        </button>
+        @if (msgError) {
+        <p class="text-center text-red-900 mt-4 p-4 bg-red-200">{{msgError}}</p>
+
+        }
+    </form>
+
+
+
+</section>
+
+
+
+
+
+<!-- <div class="relative">
+        <input [formControl]="email" type="email" id="email" class=" main-input peer" placeholder=" " />
+        <label for="email" class="main-label">Email</label>
+
+        @if (email.errors && email.touched) {
+
+        <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+            role="alert">
+
+
+            <ul class="mt-1.5 list-disc list-inside">
+                @if(email.getError('required')){
+                <li>Input Is Required</li>
+
+                }
+
+                @if(email.getError('email')){
+                <li>Pleas Enter a valid Email Address</li>
+
+
+                }
+                 <li>Input Should Be More Than Or Equal 2 Chars</li>
+        <li>Input Should Be Less Than Or Equal 20 Chars</li> 
+                <li>Custom Field Shuld Match The Pattern </li>
+        <li>Accept Only Egypt Phone  Numbers </li>
+        <li>Password Confirmation Is Incorrect </li> 
+            </ul>
+        </div>
+
+        }
+
+
+    </div> -->

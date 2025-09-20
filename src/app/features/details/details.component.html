@@ -1,0 +1,34 @@
+@defer(when productDetails.imageCover){
+<section class="py-14">
+    <div class="container">
+        <h1 class="text-center text-5xl mb-4">Product Overview</h1>
+
+        <div class="grid sm:grid-cols-12 items-center gap-4 ">
+            @defer (when productDetails.imageCover) {
+            <div class="col-span-3">
+                <img [src]="productDetails.imageCover" class="w-full" [alt]="productDetails.title">
+            </div>
+            }
+
+            <div class="col-span-8">
+                <h2 class="text-2xl">{{productDetails.title}}</h2>
+                <p class="text-gray-700 text-sm my-2">{{productDetails.description}}</p>
+
+                <span>{{productDetails.category.name}}</span>
+
+
+                <div class="flex items-center justify-between">
+                    <span>{{productDetails.price}} EGP</span>
+                    <span><i class="fas fa-star text-yellow-500"></i> {{productDetails.ratingsAverage}}</span>
+                </div>
+
+                <button (click)="addDetailsItemToCart(productDetails._id)" class="btn mt-2 rounded"
+                    [disabled]="!productDetails || !productDetails._id">
+                    Add To Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+</section>
+}

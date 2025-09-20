@@ -1,0 +1,15 @@
+<div class="card overflow-hidden bg-white border rounded shadow-md p-1 group/card">
+    <div [routerLink]="['/details', product.id]" class="cursor-pointer">
+        <img [src]="product.imageCover" class="w-full rounded-t h-[250px] " [alt]="product.title">
+        <h3 class="text-sm text-green-700">{{product.category.name }}</h3>
+        <h4 class="text-lg py-2 line-clamp-1">Fashion for {{product.title |term:5 }}</h4>
+        <div class="flex justify-between items-center">
+            <span> {{product.price}} EGP</span>
+            <span><i class="fas fa-star text-yellow-600"></i> {{product.ratingsAverage}}</span>
+        </div>
+    </div>
+
+    <button (click)="addProductItemToCart(product._id)" class="btn translate-y-[120%] group-hover/card:translate-y-0">
+        Add To Cart </button>
+
+</div>

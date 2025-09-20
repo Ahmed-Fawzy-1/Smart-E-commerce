@@ -1,0 +1,14 @@
+<section class="bg-gray-100 py-16 border border-gray-400">
+    <div class="container">
+        <h2 class="text-5xl text-green-800 text-center mb-10">Brands List</h2>
+
+        <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+            @for (brand of brandsList; track brand._id) {
+            <div class="border border-slate-200 rounded p-4 bg-white text-center shadow-sm hover:shadow-md transition">
+                <img [src]="brand.image" [alt]="brand.name" class="w-full h-32 object-contain" />
+                <h3 class="mt-4 text-lg font-medium text-gray-800">{{ brand.name }}</h3>
+            </div>
+            }
+        </div>
+    </div>
+</section>
