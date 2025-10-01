@@ -2,15 +2,16 @@
   "name": "e-commerce-app",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "build:ssr": "ng build",
-    "serve:ssr": "node dist/E-Commerce-App/server/main.js",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "vercel-build": "ng build"
-  },
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "build:ssr": "ng build",
+  "serve:ssr": "node dist/E-Commerce-App/server/main.js",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "vercel-build": "npm install --legacy-peer-deps && ng build"
+}
+,
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
