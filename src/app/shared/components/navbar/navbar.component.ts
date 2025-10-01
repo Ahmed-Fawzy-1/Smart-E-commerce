@@ -8,50 +8,41 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink , RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
- constructor(private flowbiteService: FlowbiteService) {}
+  constructor(private flowbiteService: FlowbiteService) {}
 
- private readonly authService = inject(AuthService)
- private readonly cartService = inject(CartService)
- private readonly id = inject(PLATFORM_ID)
+  private readonly authService = inject(AuthService);
+  private readonly cartService = inject(CartService);
+  private readonly id = inject(PLATFORM_ID);
 
-@Input({required:true}) isLogin!:boolean
+  @Input({ required: true }) isLogin!: boolean;
 
-count:Signal<number> = computed(()=>this.cartService.countNumber());
+  count: Signal<number> = computed(() => this.cartService.countNumber());
   ngOnInit(): void {
-
-
-
     this.flowbiteService.loadFlowbite((flowbite) => {
       initFlowbite();
     });
 
-  
-    if(isPlatformBrowser(this.id)){
-    this.getAllDataCart();
+    if (isPlatformBrowser(this.id)) {
+      this.getAllDataCart();
     }
-
   }
 
-
-
-
-getAllDataCart():void{
-  this.cartService.getLoggedUserCart().subscribe({
-    next:(res)=>{
-      this.cartService.countNumber.set(res.numOfCartItems)
-    },
-  })
-}
-
-  signOut():void{
-    this.authService.logOut()
+  getAllDataCart(): void {
+    this.cartService.getLoggedUserCart().subscribe({
+      next: (res) => {
+        this.cartService.countNumber.set(res.numOfCartItems);
+      },
+    });
   }
 
+  signOut(): void {
+    this.authService.logOut();
+  }
 
   // useLanguage(language:string):void{
   //   localStorage.setItem('')

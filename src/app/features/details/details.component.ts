@@ -9,6 +9,7 @@ import { Product } from '../../core/models/product.interface';
   imports: [],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
+  standalone: true,
 })
 export class DetailsComponent implements OnInit {
   product: any;

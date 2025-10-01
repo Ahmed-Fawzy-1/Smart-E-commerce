@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/E-Commerce-App/server/main.js"
+      "dest": "dist/E-Commerce-App/server/server.mjs"
     }
   ]
 }

@@ -9,7 +9,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-products',
-  imports: [CardComponent, SearchPipe, NgxPaginationModule, FormsModule],
+  imports: [CardComponent, NgxPaginationModule, FormsModule, SearchPipe],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })

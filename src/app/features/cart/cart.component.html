@@ -4,7 +4,7 @@
         <div class="col-span-8 rounded-lg  shadow p-4">
             <div class="flex items-center space-x-4 ">
                 <h1 class="text-3xl">Cart</h1>
-                <span class="text-orange-700">{{cartDetails?.products?.length}} Items</span>
+                <span class="text-orange-700">{{cartDetails.products.length}} Items</span>
             </div>
 
             @for (item of cartDetails.products; track item.product._id) {

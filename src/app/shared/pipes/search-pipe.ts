@@ -1,12 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'search'
+  name: 'search',
 })
 export class SearchPipe implements PipeTransform {
-
-  transform( arr:any[] , klma: string): any{
-    arr.filter( (item)=>item.title.toLowerCase().includes(klma .toLowerCase())) ;
+  transform(arr: any[], klma: string): any[] {
+    return arr.filter((item) => item.title.toLowerCase().includes(klma.toLowerCase()));
   }
-
 }

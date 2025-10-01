@@ -27,7 +27,9 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([headersInterceptor, errorsInterceptor, loadingInterceptor])
     ),
     provideAnimations(),
-    importProvidersFrom(CookieService, NgxSpinnerModule),
+    importProvidersFrom(NgxSpinnerModule),
+    CookieService,
+
     provideToastr(),
   ],
 };
