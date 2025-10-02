@@ -1,7 +1,7 @@
 {
   "version": 2,
   "installCommand": "npm install --legacy-peer-deps",
-  "buildCommand": "ng build",
+  "buildCommand": "npm run build:ssr",
   "routes": [
     {
       "src": "/(.*)",
