@@ -1,0 +1,2 @@
+const server = require('../dist/E-Commerce-App/server/main');
+module.exports = server.app();

@@ -1,4 +1,3 @@
-
 {
   "version": 2,
   "buildCommand": "npm run build:ssr",
@@ -6,8 +5,7 @@
   "outputDirectory": "dist/E-Commerce-App/browser",
   "functions": {
     "api/index.js": {
-      "runtime": "nodejs18.x",
-      "handler": "dist/E-Commerce-App/server/main.js"
+      "runtime": "nodejs18.x"
     }
   },
   "routes": [
