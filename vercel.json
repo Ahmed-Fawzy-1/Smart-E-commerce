@@ -2,12 +2,6 @@
   "version": 2,
   "buildCommand": "npm run build:ssr",
   "installCommand": "npm install --legacy-peer-deps",
-  "outputDirectory": "dist/E-Commerce-App/browser",
-  "functions": {
-    "api/index.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "routes": [
     {
       "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
